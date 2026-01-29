@@ -50,7 +50,7 @@ public class Jotto(){
         return word.length();
     }
     public String showPlayedWords(){
-        
+
     }
     public boolean addPlayerGuess(String word){
 
