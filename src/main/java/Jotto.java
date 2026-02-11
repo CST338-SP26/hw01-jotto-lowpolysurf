@@ -7,7 +7,7 @@ public class Jotto(){
     private int score;
     ArrayList<String> playGuesses = new ArrayList<String>();
     ArrayList<String> playWords = new ArrayList<String>();
-    private string filename;
+    private String filename;
     ArrayList<String> wordList = new ArrayList<String>();
     private final boolean DEBUG = true;
 
