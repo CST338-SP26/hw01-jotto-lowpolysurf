@@ -1,6 +1,10 @@
+//Chase Miranda
+//cst338
+//jotto word game
+
 import java.util.ArrayList;
 
-public class Jotto(){
+public class Jotto{
 
     private final int WORD_SIZE = 5;
     private String currentWord = "";
@@ -17,28 +21,28 @@ public class Jotto(){
     }
 
     public boolean pickWord(){
-
+        return false;
     }
     public String showWordList(){
-
+        return "";
     }
     public ArrayList<String> showPlayerGuesses(){
-
+        return new ArrayList<String>();
     }
-    public void playerGuessScores(ArrayList<String>){
+    public void playerGuessScores(ArrayList<String> playGuesses){
 
     }
     public void setCurrentWord(String word){
         this.currentWord = word;
     }
     public ArrayList<String> readWords(){
-
+        return new ArrayList<String>();
     }
     public void play(){
 
     }
     public int guess(){
-
+        return 0;
     }
     public ArrayList<String> getPlayedWords() {
         return playWords;
@@ -50,10 +54,10 @@ public class Jotto(){
         return word.length();
     }
     public String showPlayedWords(){
-
+        return "";
     }
     public boolean addPlayerGuess(String word){
-
+        return false;
     }
     public void updateWordList(){
 
@@ -62,54 +66,3 @@ public class Jotto(){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @author feng3302
- * @version 0.1.0
- * @Since 1/29/26
- **/
-public class Jotto {
-}
