@@ -2,7 +2,6 @@
 //cst338
 //jotto word game
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
@@ -27,10 +26,20 @@ public class Jotto{
         return false;
     }
     public String showWordList(){
-        return "";
+        StringBuilder out = new StringBuilder();
+        out.append("Current list of played words:\n");
+        for (String word : wordList) {
+            out.append(word).append("\n");
+        }
+        return out.toString();
     }
     public ArrayList<String> showPlayerGuesses(){
-        return new ArrayList<String>();
+
+
+
+
+
+        return playGuesses;
     }
     public void playerGuessScores(ArrayList<String> playGuesses){
 
@@ -57,6 +66,7 @@ public class Jotto{
         Scanner cin = new Scanner(System.in);
         String choice = "";
 
+        //do
         do{
             //menu
             System.out.println("Welcome to the game.\n" +
@@ -116,7 +126,17 @@ public class Jotto{
         return word.length();
     }
     public String showPlayedWords(){
-        return "";
+        //empty
+        if(playWords.isEmpty()){
+            return "No words have been played";
+        }
+        //not empty
+        StringBuilder out = new StringBuilder();
+        out.append("Current list of played words:\n");
+        for (String playWord : playWords) {
+            out.append(playWord).append("\n");
+        }
+        return out.toString();
     }
     public boolean addPlayerGuess(String word){
         return false;
