@@ -34,11 +34,26 @@ public class Jotto{
         return out.toString();
     }
     public ArrayList<String> showPlayerGuesses(){
+        //empty
+        if(playGuesses.isEmpty()){
+            System.out.println("No words have been played");
+        }
+        //not empty
+        StringBuilder out = new StringBuilder();
+        out.append("Current list of played words:\n");
+        for (String playGuess : playGuesses) {
+            out.append(playGuess).append("\n");
+        }
+        System.out.println(out);
 
-        ////////////      KEEP WORKING HERE  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-
+        System.out.println("Would you like to add the words to the word list? (y/n)");
+        Scanner cin = new Scanner(System.in);
+        String choice = "";
+        choice = cin.nextLine().trim().toLowerCase();
+        if(choice.equals("y")){
+            updateWordList();
+            showWordList();
+        }
         return playGuesses;
     }
     public void playerGuessScores(ArrayList<String> playGuesses){
@@ -80,28 +95,26 @@ public class Jotto{
                     "zz to exit\n" +
                     "=-=-=-=-=-=-=-=-=-=-=");
             System.out.print("What is your choice: ");
-            choice = cin.nextLine();
+            choice = cin.nextLine().trim().toLowerCase();
             //menu
 
-            if(choice.trim().equals("1") || choice.toLowerCase().equals("one")){
-                if(!pickWord()){
-                    showPlayerGuesses();/////////////////////////////////////////////////////////////////////implement
-                }else{
-                    guess();/////////////////////////////////////////////////////////////////////////////////implement
+            switch (choice) {
+                case "1", "one" -> {
+                    if (pickWord()) {
+                        guess();
+                    } else {
+                        showPlayerGuesses();
+                    }
                 }
-
-            }else if(choice.trim().equals("2") || choice.toLowerCase().equals("two")){
-                showWordList();///////////////////////////////////////////////////////////////////////////////implement
-
-            }else if(choice.trim().equals("3") || choice.toLowerCase().equals("three")){
-                showPlayedWords();////////////////////////////////////////////////////////////////////////////implement
-
-            }else if(choice.trim().equals("4") || choice.toLowerCase().equals("four")){
-                showPlayerGuesses();///////////////////////////////////////////////////////////////////////////implement
-            }else{
-                System.out.println("I don't know what " + choice + " is.");
+                case "2", "two" ->
+                        showWordList();
+                case "3", "three" ->
+                        showPlayedWords();
+                case "4", "four" ->
+                        showPlayerGuesses();
+                default ->
+                        System.out.println("I don't know what " + choice + " is.");
             }
-
         }while(!choice.toLowerCase().trim().equals("zz"));
 
         //enter to continue
