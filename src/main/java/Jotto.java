@@ -10,11 +10,11 @@ import java.util.Scanner;
 public class Jotto{
 
     private final int WORD_SIZE = 5;
-    private String currentWord = "";
+    private String currentWord;
     private int score = 0;
     ArrayList<String> playGuesses = new ArrayList<String>();
     ArrayList<String> playWords = new ArrayList<String>();
-    private String filename = "";
+    private String filename;
     ArrayList<String> wordList = new ArrayList<String>();
     private final boolean DEBUG = true;
 
@@ -25,7 +25,7 @@ public class Jotto{
 
     public boolean pickWord(){
         Random r = new Random();
-        currentWord = wordList.get(r.nextInt(0,wordList.size()-1));
+        currentWord = wordList.get(r.nextInt(wordList.size()));
         if(playWords.contains(currentWord) && playWords.size() == wordList.size()){
             System.out.println("You've guessed them all!");
             return false;
@@ -44,7 +44,7 @@ public class Jotto{
     }
     public String showWordList(){
         StringBuilder out = new StringBuilder();
-        out.append("Current list of played words:\n");
+        out.append("Current word list:\n");
         for (String word : wordList) {
             out.append(word).append("\n");
         }
@@ -63,11 +63,10 @@ public class Jotto{
         }
         System.out.println(out);
 
-        System.out.println("Would you like to add the words to the word list? (y/n)");
         Scanner cin = new Scanner(System.in);
         String choice = "";
-        choice = cin.nextLine().trim().toLowerCase();
-        if(choice.equals("y")){
+        choice = cin.next("Would you like to add the words to the word list? (y/n)");
+        if(choice.trim().toLowerCase().equals("y")){
             updateWordList();
             showWordList();
         }
@@ -126,7 +125,7 @@ public class Jotto{
                     }
                 }
                 case "2", "two" ->
-                        showWordList();
+                        System.out.println(showWordList());
                 case "3", "three" ->
                         showPlayedWords();
                 case "4", "four" ->
@@ -188,13 +187,23 @@ public class Jotto{
         return currentWord;
     }
     public int getLetterCount(String word){
+        word = word.toLowerCase().trim();
         int count = 0;
 
         if(word.equals(currentWord)){
             return 5;
         }
-        for(int i = 0; i < word.length(); i++){
-            
+        ArrayList<Character> chC = new ArrayList<>();
+        for(int i = 0; i < currentWord.length(); i++){
+            if(!chC.contains(currentWord.charAt(i))){
+                chC.add(currentWord.charAt(i));
+            }
+        }
+        for(int j = 0; j < word.length(); j++){
+            if(chC.contains(word.charAt(j))){
+                count++;
+                chC.remove(chC.indexOf(word.charAt(j)));
+            }
         }
         return count;
     }
