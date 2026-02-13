@@ -127,6 +127,35 @@ public class Jotto{
         //enter to continue
     }
     public int guess(){
+        ArrayList<String> currentGuess = new ArrayList<String>();
+        Scanner scan = new Scanner(System.in);
+        int letterCount = 0;
+        int score = WORD_SIZE + 1;
+        String wordGuess = "";
+
+        do{
+            System.out.println("Current score: " + score);
+            System.out.print("What is your guess (q to quit): ");
+            wordGuess = scan.nextLine().trim().toLowerCase();
+
+            if(!wordGuess.equals("q")){
+             if(wordGuess.length() == 5){
+                 addPlayerGuess(wordGuess);
+                 if(getCurrentWord().trim().toLowerCase().equals(wordGuess)){
+                     System.out.println("Correct");
+                     currentGuess.add(wordGuess);
+                     playerGuessScores(currentGuess);
+                 }
+             }else{
+                 System.out.println("Word must be correct length (5 letters). You entered " + wordGuess.length() + " letters.");
+                 score--;
+             }
+            }else{
+                score = Math.min(0,score);
+            }
+        }while(!wordGuess.equals("q"));
+
+
         return 0;
     }
     public ArrayList<String> getPlayedWords() {
