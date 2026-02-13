@@ -190,12 +190,11 @@ public class Jotto{
     public int getLetterCount(String word){
         int count = 0;
 
-        if(word.trim().toLowerCase().equals(currentWord)){
+        if(word.equals(currentWord)){
             return 5;
         }
-        ArrayList<Character> ch = new ArrayList<Character>();
         for(int i = 0; i < word.length(); i++){
-            ch.add(word.charAt(i));
+            
         }
         return count;
     }

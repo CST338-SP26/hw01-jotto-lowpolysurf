@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JottoTest" tests="18" skipped="0" failures="5" errors="0" timestamp="2026-02-13T04:48:28.328Z" hostname="LAPTOP-PTLHHM4E" time="0.112">
+<testsuite name="JottoTest" tests="18" skipped="0" failures="5" errors="0" timestamp="2026-02-13T05:46:43.607Z" hostname="LAPTOP-PTLHHM4E" time="0.097">
   <properties/>
-  <testcase name="showPlayedWords()" classname="JottoTest" time="0.032">
+  <testcase name="showPlayedWords()" classname="JottoTest" time="0.031">
     <failure message="java.lang.IllegalArgumentException: bound must be greater than origin" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: bound must be greater than origin
 	at java.base/jdk.internal.util.random.RandomSupport.checkRange(RandomSupport.java:190)
 	at java.base/java.util.random.RandomGenerator.nextInt(RandomGenerator.java:845)
@@ -13,7 +13,7 @@
 </failure>
   </testcase>
   <testcase name="setCurrentWord()" classname="JottoTest" time="0.002"/>
-  <testcase name="showPlayerGuesses()" classname="JottoTest" time="0.005">
+  <testcase name="showPlayerGuesses()" classname="JottoTest" time="0.004">
     <failure message="java.util.NoSuchElementException: No line found" type="java.util.NoSuchElementException">java.util.NoSuchElementException: No line found
 	at java.base/java.util.Scanner.nextLine(Scanner.java:1690)
 	at Jotto.showPlayerGuesses(Jotto.java:69)
@@ -23,8 +23,8 @@
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 </failure>
   </testcase>
-  <testcase name="readWords()" classname="JottoTest" time="0.004"/>
-  <testcase name="showWordList()" classname="JottoTest" time="0.008">
+  <testcase name="readWords()" classname="JottoTest" time="0.003"/>
+  <testcase name="showWordList()" classname="JottoTest" time="0.007">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -38,7 +38,7 @@
 	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
 </failure>
   </testcase>
-  <testcase name="pickWord()" classname="JottoTest" time="0.004">
+  <testcase name="pickWord()" classname="JottoTest" time="0.005">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;null&gt; but was: &lt;&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;null&gt; but was: &lt;&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -52,9 +52,9 @@
 	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
 </failure>
   </testcase>
-  <testcase name="getPlayedWords()" classname="JottoTest" time="0.002"/>
-  <testcase name="getLetterCount()" classname="JottoTest" time="0.004">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;5&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;5&gt;
+  <testcase name="getPlayedWords()" classname="JottoTest" time="0.003"/>
+  <testcase name="getLetterCount()" classname="JottoTest" time="0.003">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;0&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
@@ -69,14 +69,14 @@
   </testcase>
   <testcase name="getCurrentWord()" classname="JottoTest" time="0.002"/>
   <testcase name="score()" classname="JottoTest" time="0.003"/>
-  <testcase name="updateWordList()" classname="JottoTest" time="0.001"/>
+  <testcase name="updateWordList()" classname="JottoTest" time="0.004"/>
   <testcase name="playerGuessScores()" classname="JottoTest" time="0.002"/>
-  <testcase name="addPlayerGuess()" classname="JottoTest" time="0.005"/>
+  <testcase name="addPlayerGuess()" classname="JottoTest" time="0.003"/>
   <testcase name="setFilename()" classname="JottoTest" time="0.002"/>
-  <testcase name="getFilename()" classname="JottoTest" time="0.005"/>
+  <testcase name="getFilename()" classname="JottoTest" time="0.002"/>
   <testcase name="getPlayerGuesses()" classname="JottoTest" time="0.003"/>
-  <testcase name="getScore()" classname="JottoTest" time="0.003"/>
-  <testcase name="getWordList()" classname="JottoTest" time="0.003"/>
+  <testcase name="getScore()" classname="JottoTest" time="0.002"/>
+  <testcase name="getWordList()" classname="JottoTest" time="0.002"/>
   <system-out><![CDATA[No words have been played
 Current list of played words:
 
