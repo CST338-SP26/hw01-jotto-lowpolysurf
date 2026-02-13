@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">6</div>
+<div class="counter">5</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.131s</div>
+<div class="counter">0.090s</div>
 <p>duration</p>
 </div>
 </td>
@@ -51,7 +51,7 @@
 </td>
 <td>
 <div class="infoBox failures" id="successRate">
-<div class="percent">66%</div>
+<div class="percent">72%</div>
 <p>successful</p>
 </div>
 </td>
@@ -72,25 +72,6 @@
 </ul>
 <div class="tab">
 <h2>Failed tests</h2>
-<div class="test">
-<a name="addPlayerGuess()"></a>
-<h3 class="failures">addPlayerGuess()</h3>
-<span class="code">
-<pre id="test-message-addPlayerGuess()">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
-	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at app//JottoTest.addPlayerGuess(JottoTest.java:188)
-	at java.base@25.0.2/java.lang.reflect.Method.invoke(Method.java:565)
-	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
-</pre>
-<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="test-message-addPlayerGuess()">Copy</button>
-</span>
-</div>
 <div class="test">
 <a name="getLetterCount()"></a>
 <h3 class="failures">getLetterCount()</h3>
@@ -133,17 +114,14 @@
 <a name="showPlayedWords()"></a>
 <h3 class="failures">showPlayedWords()</h3>
 <span class="code">
-<pre id="test-message-showPlayedWords()">org.opentest4j.AssertionFailedError: expected: &lt;No words have been played.&gt; but was: &lt;No words have been played&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1141)
-	at app//JottoTest.showPlayedWords(JottoTest.java:116)
-	at java.base@25.0.2/java.lang.reflect.Method.invoke(Method.java:565)
-	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
+<pre id="test-message-showPlayedWords()">java.lang.IllegalArgumentException: bound must be greater than origin
+	at java.base/jdk.internal.util.random.RandomSupport.checkRange(RandomSupport.java:190)
+	at java.base/java.util.random.RandomGenerator.nextInt(RandomGenerator.java:845)
+	at Jotto.pickWord(Jotto.java:28)
+	at JottoTest.showPlayedWords(JottoTest.java:117)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 </pre>
 <button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="test-message-showPlayedWords()">Copy</button>
 </span>
@@ -154,7 +132,7 @@
 <span class="code">
 <pre id="test-message-showPlayerGuesses()">java.util.NoSuchElementException: No line found
 	at java.base/java.util.Scanner.nextLine(Scanner.java:1690)
-	at Jotto.showPlayerGuesses(Jotto.java:52)
+	at Jotto.showPlayerGuesses(Jotto.java:69)
 	at JottoTest.showPlayerGuesses(JottoTest.java:135)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
@@ -194,18 +172,18 @@
 </tr>
 </thead>
 <tr>
-<td class="failures">addPlayerGuess()</td>
-<td class="failures">0.003s</td>
-<td class="failures">failed</td>
-</tr>
-<tr>
-<td class="success">getCurrentWord()</td>
+<td class="success">addPlayerGuess()</td>
 <td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">getFilename()</td>
+<td class="success">getCurrentWord()</td>
 <td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getFilename()</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -225,17 +203,17 @@
 </tr>
 <tr>
 <td class="success">getScore()</td>
-<td class="success">0.008s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getWordList()</td>
-<td class="success">0.007s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="failures">pickWord()</td>
-<td class="failures">0.006s</td>
+<td class="failures">0.004s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
@@ -250,7 +228,7 @@
 </tr>
 <tr>
 <td class="success">score()</td>
-<td class="success">0.002s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -260,27 +238,27 @@
 </tr>
 <tr>
 <td class="success">setFilename()</td>
-<td class="success">0.005s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="failures">showPlayedWords()</td>
-<td class="failures">0.045s</td>
+<td class="failures">0.032s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">showPlayerGuesses()</td>
-<td class="failures">0.024s</td>
-<td class="failures">failed</td>
-</tr>
-<tr>
-<td class="failures">showWordList()</td>
 <td class="failures">0.005s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
+<td class="failures">showWordList()</td>
+<td class="failures">0.008s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
 <td class="success">updateWordList()</td>
-<td class="success">0.002s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -308,7 +286,7 @@ Checking salet
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 9.2.0</a> at Feb 12, 2026, 5:14:00 PM</p>
+<a href="https://www.gradle.org">Gradle 9.2.0</a> at Feb 12, 2026, 8:48:28 PM</p>
 </div>
 </div>
 </body>

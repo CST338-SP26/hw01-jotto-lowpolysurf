@@ -4,6 +4,7 @@
 
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Jotto{
@@ -23,7 +24,23 @@ public class Jotto{
     }
 
     public boolean pickWord(){
-        return false;
+        Random r = new Random();
+        currentWord = wordList.get(r.nextInt(0,wordList.size()-1));
+        if(playWords.contains(currentWord) && playWords.size() == wordList.size()){
+            System.out.println("You've guessed them all!");
+            return false;
+        }else if(playWords.contains(currentWord)){
+            pickWord();
+        }
+        playWords.add(currentWord);
+
+        //debug
+        if(DEBUG){
+            System.out.print(currentWord);
+        }
+        //debug
+
+        return true;
     }
     public String showWordList(){
         StringBuilder out = new StringBuilder();
@@ -57,7 +74,9 @@ public class Jotto{
         return playGuesses;
     }
     public void playerGuessScores(ArrayList<String> playGuesses){
-
+        for(String words : playGuesses){
+            System.out.println(words + " : ");
+        }
     }
     public void setCurrentWord(String word){
         this.currentWord = word;
@@ -140,11 +159,15 @@ public class Jotto{
 
             if(!wordGuess.equals("q")){
              if(wordGuess.length() == 5){
-                 addPlayerGuess(wordGuess);
-                 if(getCurrentWord().trim().toLowerCase().equals(wordGuess)){
-                     System.out.println("Correct");
-                     currentGuess.add(wordGuess);
-                     playerGuessScores(currentGuess);
+                 if(currentGuess.contains(wordGuess)){
+                     System.out.println("word has already been guessed");
+                 }else{
+                     addPlayerGuess(wordGuess);
+                     if(getCurrentWord().trim().toLowerCase().equals(wordGuess)){
+                         System.out.println("Correct");
+                         currentGuess.add(wordGuess);
+                         playerGuessScores(currentGuess);
+                     }
                  }
              }else{
                  System.out.println("Word must be correct length (5 letters). You entered " + wordGuess.length() + " letters.");
@@ -165,12 +188,21 @@ public class Jotto{
         return currentWord;
     }
     public int getLetterCount(String word){
-        return word.length();
+        int count = 0;
+
+        if(word.trim().toLowerCase().equals(currentWord)){
+            return 5;
+        }
+        ArrayList<Character> ch = new ArrayList<Character>();
+        for(int i = 0; i < word.length(); i++){
+            ch.add(word.charAt(i));
+        }
+        return count;
     }
     public String showPlayedWords(){
         //empty
         if(playWords.isEmpty()){
-            return "No words have been played";
+            return "No words have been played.";
         }
         //not empty
         StringBuilder out = new StringBuilder();
@@ -181,10 +213,22 @@ public class Jotto{
         return out.toString();
     }
     public boolean addPlayerGuess(String word){
+        if(!playGuesses.contains(word)){
+            playGuesses.add(word);
+            return true;
+        }
         return false;
     }
     public void updateWordList(){
-
+        try (FileWriter fw = new FileWriter(filename)){
+            for( String words : playGuesses){
+                fw.append(words).append("\n");
+                fw.close();
+            }
+        }catch (IOException e){
+            System.out.println("Couldn't open " + filename);
+            e.printStackTrace();
+        }
     }
 
 
